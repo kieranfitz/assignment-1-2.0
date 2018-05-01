@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import gamesRouter from './api/games';
 import bodyParser from 'body-parser';
+import reviewsRouter from './api/reviews';
 
 dotenv.config();
 
@@ -16,6 +17,8 @@ app.use(bodyParser.urlencoded());
 app.use(express.static('public'));
 
 app.use('/api/games', gamesRouter);
+app.use('/api/reviews', reviewsRouter);
+
 app.use(express.static('public'));
 
 app.listen(port, () => {
